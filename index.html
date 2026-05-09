@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#1f9d68">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="First Words">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>English First Words</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app">
+      <section class="topbar" aria-label="Панель обучения">
+        <div>
+          <p class="eyebrow">English First Words</p>
+          <h1>Первые английские слова</h1>
+        </div>
+        <div class="score" aria-live="polite">
+          <span>Выучено</span>
+          <strong id="learnedCount">0</strong>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <aside class="sidebar" aria-label="Темы слов">
+          <button class="topic active" data-topic="animals" type="button">
+            <span class="topic-icon">cat</span>
+            <span>Животные</span>
+          </button>
+          <button class="topic" data-topic="family" type="button">
+            <span class="topic-icon">home</span>
+            <span>Семья</span>
+          </button>
+          <button class="topic" data-topic="food" type="button">
+            <span class="topic-icon">food</span>
+            <span>Еда</span>
+          </button>
+          <button class="topic" data-topic="colors" type="button">
+            <span class="topic-icon">red</span>
+            <span>Цвета</span>
+          </button>
+          <button class="topic" data-topic="body" type="button">
+            <span class="topic-icon">hand</span>
+            <span>Тело</span>
+          </button>
+          <button class="topic" data-topic="actions" type="button">
+            <span class="topic-icon">go</span>
+            <span>Действия</span>
+          </button>
+          <button class="topic" data-topic="feelings" type="button">
+            <span class="topic-icon">happy</span>
+            <span>Чувства</span>
+          </button>
+          <button class="topic" data-topic="home" type="button">
+            <span class="topic-icon">bed</span>
+            <span>Дом</span>
+          </button>
+          <button class="topic" data-topic="nature" type="button">
+            <span class="topic-icon">sun</span>
+            <span>Природа</span>
+          </button>
+          <button class="topic" data-topic="clothes" type="button">
+            <span class="topic-icon">hat</span>
+            <span>Одежда</span>
+          </button>
+          <button class="topic" data-topic="numbers" type="button">
+            <span class="topic-icon">one</span>
+            <span>Числа</span>
+          </button>
+        </aside>
+
+        <section class="study-panel" aria-label="Карточка слова">
+          <div class="word-card">
+            <div class="picture" id="picture" aria-hidden="true">cat</div>
+            <div class="word-main">
+              <p class="topic-name" id="topicName">Животные</p>
+              <h2 id="englishWord">cat</h2>
+              <p class="translation" id="translation">кошка</p>
+              <div class="phonetics">
+                <span id="ipa">/kaet/</span>
+                <button class="hint-button" id="russianHint" type="button" aria-expanded="false">Подсказка</button>
+              </div>
+              <div class="tense-panel" id="tensePanel" hidden>
+                <div class="tense-row">
+                  <span class="tense-label">Сейчас</span>
+                  <button class="tense-example" id="presentExample" type="button"></button>
+                  <span class="tense-ru" id="presentRu"></span>
+                </div>
+                <div class="tense-row">
+                  <span class="tense-label">Вчера</span>
+                  <button class="tense-example" id="pastExample" type="button"></button>
+                  <span class="tense-ru" id="pastRu"></span>
+                </div>
+                <div class="tense-row">
+                  <span class="tense-label">Завтра</span>
+                  <button class="tense-example" id="futureExample" type="button"></button>
+                  <span class="tense-ru" id="futureRu"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls" aria-label="Действия">
+            <button class="icon-button primary" id="speakBtn" type="button" aria-label="Произнести слово" title="Произнести">
+              <span aria-hidden="true">▶</span>
+            </button>
+            <button class="icon-button" id="prevBtn" type="button" aria-label="Предыдущее слово" title="Назад">
+              <span aria-hidden="true">←</span>
+            </button>
+            <button class="icon-button" id="nextBtn" type="button" aria-label="Следующее слово" title="Вперед">
+              <span aria-hidden="true">→</span>
+            </button>
+            <button class="mark-button" id="knownBtn" type="button">Знаю</button>
+          </div>
+
+          <div class="practice">
+            <div class="practice-head">
+              <h3>Проверка</h3>
+              <button class="small-button" id="newQuizBtn" type="button">Новое слово</button>
+            </div>
+            <p id="quizPrompt">Как будет «кошка» по-английски?</p>
+            <div class="answers" id="answers"></div>
+            <p class="feedback" id="feedback" aria-live="polite"></p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
