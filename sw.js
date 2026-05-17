@@ -1,4 +1,4 @@
-const CACHE_NAME = "english-first-words-v1";
+const CACHE_NAME = "english-first-words-v2";
 const APP_SHELL = [
   "./",
   "./index.html",

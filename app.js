@@ -55,6 +55,8 @@ const lessons = {
       { en: "sleep", ru: "спать", ipa: "/sliːp/", hint: "слип", picture: "SLEEP" },
       { en: "eat", ru: "есть", ipa: "/iːt/", hint: "ит", picture: "EAT" },
       { en: "drink", ru: "пить", ipa: "/drɪŋk/", hint: "дринк", picture: "DRINK" },
+      { en: "run", ru: "бегать", ipa: "/rʌn/", hint: "ран", picture: "RUN" },
+      { en: "jump", ru: "прыгать", ipa: "/dʒʌmp/", hint: "джамп", picture: "JUMP" },
       { en: "cry", ru: "плакать", ipa: "/kraɪ/", hint: "край", picture: "CRY" },
       { en: "smile", ru: "улыбаться", ipa: "/smaɪl/", hint: "смайл", picture: "SMILE" },
       { en: "look", ru: "смотреть", ipa: "/lʊk/", hint: "лук", picture: "LOOK" },
@@ -128,13 +130,104 @@ const lessons = {
       { en: "four", ru: "четыре", ipa: "/fɔːr/", hint: "фор", picture: "FOUR" },
       { en: "five", ru: "пять", ipa: "/faɪv/", hint: "файв", picture: "FIVE" }
     ]
+  },
+  objects: {
+    title: "Предметы",
+    words: [
+      { en: "cup", ru: "чашка", ipa: "/kʌp/", hint: "кап", picture: "CUP" },
+      { en: "spoon", ru: "ложка", ipa: "/spuːn/", hint: "спун", picture: "SPOON" },
+      { en: "ball", ru: "мяч", ipa: "/bɔːl/", hint: "бол", picture: "BALL" },
+      { en: "box", ru: "коробка", ipa: "/bɑːks/", hint: "бокс", picture: "BOX" },
+      { en: "window", ru: "окно", ipa: "/ˈwɪndoʊ/", hint: "уин-доу", picture: "WINDOW" }
+    ]
+  },
+  toys: {
+    title: "Игрушки",
+    words: [
+      { en: "doll", ru: "кукла", ipa: "/dɑːl/", hint: "дал", picture: "DOLL" },
+      { en: "car", ru: "машинка", ipa: "/kɑːr/", hint: "кар", picture: "CAR" },
+      { en: "robot", ru: "робот", ipa: "/ˈroʊbɑːt/", hint: "роу-бот", picture: "ROBOT" },
+      { en: "blocks", ru: "кубики", ipa: "/blɑːks/", hint: "блокс", picture: "BLOCKS" },
+      { en: "kite", ru: "воздушный змей", ipa: "/kaɪt/", hint: "кайт", picture: "KITE" }
+    ]
+  },
+  school: {
+    title: "Школа",
+    words: [
+      { en: "pen", ru: "ручка", ipa: "/pen/", hint: "пэн", picture: "PEN" },
+      { en: "pencil", ru: "карандаш", ipa: "/ˈpensəl/", hint: "пэн-сэл", picture: "PENCIL" },
+      { en: "bag", ru: "сумка", ipa: "/bæɡ/", hint: "бэг", picture: "BAG" },
+      { en: "ruler", ru: "линейка", ipa: "/ˈruːlər/", hint: "ру-лэр", picture: "RULER" },
+      { en: "notebook", ru: "тетрадь", ipa: "/ˈnoʊtbʊk/", hint: "ноут-бук", picture: "NOTEBOOK" }
+    ]
+  },
+  adjectives: {
+    title: "Признаки",
+    words: [
+      { en: "big", ru: "большой", ipa: "/bɪɡ/", hint: "биг", picture: "BIG" },
+      { en: "small", ru: "маленький", ipa: "/smɔːl/", hint: "смол", picture: "SMALL" },
+      { en: "good", ru: "хороший", ipa: "/ɡʊd/", hint: "гуд", picture: "GOOD" },
+      { en: "bad", ru: "плохой", ipa: "/bæd/", hint: "бэд", picture: "BAD" },
+      { en: "hot", ru: "горячий", ipa: "/hɑːt/", hint: "хат", picture: "HOT" },
+      { en: "cold", ru: "холодный", ipa: "/koʊld/", hint: "коулд", picture: "COLD" },
+      { en: "fast", ru: "быстрый", ipa: "/fæst/", hint: "фэст", picture: "FAST" },
+      { en: "slow", ru: "медленный", ipa: "/sloʊ/", hint: "слоу", picture: "SLOW" }
+    ]
+  },
+  prepositions: {
+    title: "Предлоги",
+    words: [
+      { en: "in", ru: "внутри", ipa: "/ɪn/", hint: "ин", picture: "IN" },
+      { en: "on", ru: "на", ipa: "/ɑːn/", hint: "ан", picture: "ON" },
+      { en: "under", ru: "под", ipa: "/ˈʌndər/", hint: "ан-дэр", picture: "UNDER" },
+      { en: "near", ru: "рядом", ipa: "/nɪr/", hint: "нир", picture: "NEAR" },
+      { en: "behind", ru: "за", ipa: "/bɪˈhaɪnd/", hint: "би-хайнд", picture: "BEHIND" }
+    ]
   }
+};
+
+const chunks = {
+  cat: ["a cat", "кот", "The cat sleeps.", "Кот спит."],
+  dog: ["a dog", "собака", "The dog runs.", "Собака бежит."],
+  bird: ["a bird", "птица", "I see a bird.", "Я вижу птицу."],
+  fish: ["a fish", "рыба", "The fish swims.", "Рыба плавает."],
+  mom: ["my mom", "моя мама", "This is my mom.", "Это моя мама."],
+  dad: ["my dad", "мой папа", "Dad drinks water.", "Папа пьет воду."],
+  milk: ["some milk", "немного молока", "I drink milk.", "Я пью молоко."],
+  apple: ["an apple", "яблоко", "I eat an apple.", "Я ем яблоко."],
+  water: ["some water", "немного воды", "I drink water.", "Я пью воду."],
+  red: ["red ball", "красный мяч", "It is red.", "Он красный."],
+  blue: ["blue cup", "синяя чашка", "It is blue.", "Она синяя."],
+  hand: ["my hand", "моя рука", "I wash my hand.", "Я мою руку."],
+  sleep: ["I sleep", "я сплю", "The baby sleeps.", "Малыш спит."],
+  eat: ["I eat", "я ем", "I eat an apple.", "Я ем яблоко."],
+  drink: ["I drink", "я пью", "I drink water.", "Я пью воду."],
+  run: ["I run", "я бегу", "The dog runs.", "Собака бежит."],
+  jump: ["I jump", "я прыгаю", "I can jump.", "Я умею прыгать."],
+  cup: ["a cup", "чашка", "The cup is on the table.", "Чашка на столе."],
+  spoon: ["a spoon", "ложка", "I take a spoon.", "Я беру ложку."],
+  ball: ["a ball", "мяч", "I see a ball.", "Я вижу мяч."],
+  doll: ["a doll", "кукла", "The doll is small.", "Кукла маленькая."],
+  car: ["a car", "машинка", "The car is fast.", "Машинка быстрая."],
+  pen: ["a pen", "ручка", "I have a pen.", "У меня есть ручка."],
+  pencil: ["a pencil", "карандаш", "I see a pencil.", "Я вижу карандаш."],
+  big: ["big dog", "большая собака", "The dog is big.", "Собака большая."],
+  small: ["small cat", "маленький кот", "The cat is small.", "Кот маленький."],
+  hot: ["hot tea", "горячий чай", "It is hot.", "Он горячий."],
+  cold: ["cold water", "холодная вода", "The water is cold.", "Вода холодная."],
+  in: ["in the box", "в коробке", "The ball is in the box.", "Мяч в коробке."],
+  on: ["on the table", "на столе", "The cup is on the table.", "Чашка на столе."],
+  under: ["under the bed", "под кроватью", "The ball is under the bed.", "Мяч под кроватью."],
+  near: ["near the door", "рядом с дверью", "Mom is near the door.", "Мама рядом с дверью."],
+  behind: ["behind the chair", "за стулом", "The cat is behind the chair.", "Кот за стулом."]
 };
 
 const verbTenses = {
   sleep: { present: ["I sleep", "я сплю"], past: ["I slept", "я спал"], future: ["I will sleep", "я буду спать"] },
   eat: { present: ["I eat", "я ем"], past: ["I ate", "я ел"], future: ["I will eat", "я буду есть"] },
   drink: { present: ["I drink", "я пью"], past: ["I drank", "я пил"], future: ["I will drink", "я буду пить"] },
+  run: { present: ["I run", "я бегу"], past: ["I ran", "я бежал"], future: ["I will run", "я побегу"] },
+  jump: { present: ["I jump", "я прыгаю"], past: ["I jumped", "я прыгал"], future: ["I will jump", "я буду прыгать"] },
   cry: { present: ["I cry", "я плачу"], past: ["I cried", "я плакал"], future: ["I will cry", "я буду плакать"] },
   smile: { present: ["I smile", "я улыбаюсь"], past: ["I smiled", "я улыбался"], future: ["I will smile", "я буду улыбаться"] },
   look: { present: ["I look", "я смотрю"], past: ["I looked", "я смотрел"], future: ["I will look", "я буду смотреть"] },
@@ -159,6 +252,7 @@ const verbTenses = {
 let topicKey = "animals";
 let wordIndex = 0;
 let quizWord = lessons.animals.words[0];
+let listeningWord = lessons.animals.words[0];
 let hintVisible = false;
 const learned = new Set(JSON.parse(localStorage.getItem("learnedWords") || "[]"));
 
@@ -170,6 +264,9 @@ const elements = {
   translation: document.querySelector("#translation"),
   ipa: document.querySelector("#ipa"),
   russianHint: document.querySelector("#russianHint"),
+  wordChunk: document.querySelector("#wordChunk"),
+  phraseChunk: document.querySelector("#phraseChunk"),
+  sentenceChunk: document.querySelector("#sentenceChunk"),
   tensePanel: document.querySelector("#tensePanel"),
   presentExample: document.querySelector("#presentExample"),
   presentRu: document.querySelector("#presentRu"),
@@ -182,9 +279,13 @@ const elements = {
   nextBtn: document.querySelector("#nextBtn"),
   knownBtn: document.querySelector("#knownBtn"),
   newQuizBtn: document.querySelector("#newQuizBtn"),
+  playListeningBtn: document.querySelector("#playListeningBtn"),
   quizPrompt: document.querySelector("#quizPrompt"),
   answers: document.querySelector("#answers"),
   feedback: document.querySelector("#feedback"),
+  listeningPrompt: document.querySelector("#listeningPrompt"),
+  listeningAnswers: document.querySelector("#listeningAnswers"),
+  listeningFeedback: document.querySelector("#listeningFeedback"),
   topics: document.querySelectorAll(".topic")
 };
 
@@ -196,9 +297,38 @@ function currentWord() {
   return currentWords()[wordIndex];
 }
 
+function articleFor(word) {
+  return /^[aeiou]/.test(word.en) ? "an" : "a";
+}
+
+function chunkFor(word) {
+  const custom = chunks[word.en];
+  if (custom) {
+    return {
+      word: [word.en, word.ru],
+      phrase: [custom[0], custom[1]],
+      sentence: [custom[2], custom[3]]
+    };
+  }
+
+  const phrase = `${articleFor(word)} ${word.en}`;
+  return {
+    word: [word.en, word.ru],
+    phrase: [phrase, word.ru],
+    sentence: [`This is ${phrase}.`, `Это ${word.ru}.`]
+  };
+}
+
+function setChunk(button, label, english, russian) {
+  button.querySelector("span").textContent = label;
+  button.querySelector("strong").textContent = english;
+  button.setAttribute("aria-label", `${label}: ${english}. ${russian}`);
+}
+
 function renderWord() {
   const word = currentWord();
   const tenses = verbTenses[word.en];
+  const chunk = chunkFor(word);
   elements.picture.textContent = word.picture;
   elements.topicName.textContent = lessons[topicKey].title;
   elements.englishWord.textContent = word.en;
@@ -209,6 +339,9 @@ function renderWord() {
   elements.russianHint.setAttribute("aria-expanded", String(hintVisible));
   elements.knownBtn.textContent = learned.has(word.en) ? "Уже знаю" : "Знаю";
   elements.learnedCount.textContent = learned.size;
+  setChunk(elements.wordChunk, "Слово", chunk.word[0], chunk.word[1]);
+  setChunk(elements.phraseChunk, "Фраза", chunk.phrase[0], chunk.phrase[1]);
+  setChunk(elements.sentenceChunk, "Сцена", chunk.sentence[0], chunk.sentence[1]);
 
   elements.tensePanel.hidden = !tenses;
   if (tenses) {
@@ -269,6 +402,45 @@ function buildQuiz() {
   });
 }
 
+function buildListeningQuiz() {
+  const pool = allWords();
+  listeningWord = shuffle(pool)[0];
+  const wrongAnswers = shuffle(pool.filter((word) => word.en !== listeningWord.en)).slice(0, 2);
+  const answers = shuffle([listeningWord, ...wrongAnswers]);
+
+  elements.listeningPrompt.textContent = "Послушай и выбери правильную карточку.";
+  elements.listeningFeedback.textContent = "";
+  elements.listeningAnswers.replaceChildren();
+
+  answers.forEach((answer) => {
+    const button = document.createElement("button");
+    button.className = "answer picture-answer";
+    button.type = "button";
+    button.innerHTML = `<strong>${answer.picture}</strong><span>${answer.ru}</span>`;
+    button.addEventListener("click", () => checkListeningAnswer(button, answer));
+    elements.listeningAnswers.append(button);
+  });
+
+  speak(chunkFor(listeningWord).phrase[0]);
+}
+
+function checkListeningAnswer(button, answer) {
+  const buttons = elements.listeningAnswers.querySelectorAll(".answer");
+  buttons.forEach((item) => {
+    item.disabled = true;
+    if (item.querySelector("strong").textContent === listeningWord.picture) item.classList.add("correct");
+  });
+
+  if (answer.en === listeningWord.en) {
+    button.classList.add("correct");
+    elements.listeningFeedback.textContent = "Да. Слушаем еще раз.";
+  } else {
+    button.classList.add("wrong");
+    elements.listeningFeedback.textContent = `Почти. Это было: ${chunkFor(listeningWord).phrase[0]}.`;
+  }
+  speak(chunkFor(listeningWord).phrase[0]);
+}
+
 function checkAnswer(button, answer) {
   const buttons = elements.answers.querySelectorAll(".answer");
   buttons.forEach((item) => {
@@ -301,9 +473,18 @@ elements.speakBtn.addEventListener("click", () => speak(currentWord().en));
 elements.prevBtn.addEventListener("click", () => move(-1));
 elements.nextBtn.addEventListener("click", () => move(1));
 elements.newQuizBtn.addEventListener("click", buildQuiz);
+elements.playListeningBtn.addEventListener("click", buildListeningQuiz);
 elements.russianHint.addEventListener("click", () => {
   hintVisible = !hintVisible;
   renderWord();
+});
+
+[
+  elements.wordChunk,
+  elements.phraseChunk,
+  elements.sentenceChunk
+].forEach((button) => {
+  button.addEventListener("click", () => speak(button.querySelector("strong").textContent));
 });
 
 [
@@ -332,6 +513,7 @@ window.addEventListener("keydown", (event) => {
 
 renderWord();
 buildQuiz();
+buildListeningQuiz();
 
 if ("serviceWorker" in navigator && location.protocol !== "file:") {
   window.addEventListener("load", () => {

@@ -71,6 +71,26 @@
             <span class="topic-icon">one</span>
             <span>Числа</span>
           </button>
+          <button class="topic" data-topic="objects" type="button">
+            <span class="topic-icon">cup</span>
+            <span>Предметы</span>
+          </button>
+          <button class="topic" data-topic="toys" type="button">
+            <span class="topic-icon">ball</span>
+            <span>Игрушки</span>
+          </button>
+          <button class="topic" data-topic="school" type="button">
+            <span class="topic-icon">pen</span>
+            <span>Школа</span>
+          </button>
+          <button class="topic" data-topic="adjectives" type="button">
+            <span class="topic-icon">big</span>
+            <span>Признаки</span>
+          </button>
+          <button class="topic" data-topic="prepositions" type="button">
+            <span class="topic-icon">in</span>
+            <span>Предлоги</span>
+          </button>
         </aside>
 
         <section class="study-panel" aria-label="Карточка слова">
@@ -83,6 +103,20 @@
               <div class="phonetics">
                 <span id="ipa">/kaet/</span>
                 <button class="hint-button" id="russianHint" type="button" aria-expanded="false">Подсказка</button>
+              </div>
+              <div class="chunk-panel" aria-label="Лестница языка">
+                <button class="chunk-row" id="wordChunk" type="button">
+                  <span>Слово</span>
+                  <strong></strong>
+                </button>
+                <button class="chunk-row" id="phraseChunk" type="button">
+                  <span>Фраза</span>
+                  <strong></strong>
+                </button>
+                <button class="chunk-row" id="sentenceChunk" type="button">
+                  <span>Сцена</span>
+                  <strong></strong>
+                </button>
               </div>
               <div class="tense-panel" id="tensePanel" hidden>
                 <div class="tense-row">
@@ -125,6 +159,16 @@
             <p id="quizPrompt">Как будет «кошка» по-английски?</p>
             <div class="answers" id="answers"></div>
             <p class="feedback" id="feedback" aria-live="polite"></p>
+          </div>
+
+          <div class="practice listening">
+            <div class="practice-head">
+              <h3>Слушание</h3>
+              <button class="small-button" id="playListeningBtn" type="button">Слушай</button>
+            </div>
+            <p id="listeningPrompt">Послушай и выбери правильную карточку.</p>
+            <div class="answers" id="listeningAnswers"></div>
+            <p class="feedback" id="listeningFeedback" aria-live="polite"></p>
           </div>
         </section>
       </section>
