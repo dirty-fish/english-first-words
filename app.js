@@ -279,7 +279,8 @@ const elements = {
   nextBtn: document.querySelector("#nextBtn"),
   knownBtn: document.querySelector("#knownBtn"),
   newQuizBtn: document.querySelector("#newQuizBtn"),
-  playListeningBtn: document.querySelector("#playListeningBtn"),
+  replayListeningBtn: document.querySelector("#replayListeningBtn"),
+  nextListeningBtn: document.querySelector("#nextListeningBtn"),
   quizPrompt: document.querySelector("#quizPrompt"),
   answers: document.querySelector("#answers"),
   feedback: document.querySelector("#feedback"),
@@ -351,6 +352,13 @@ function renderWord() {
     elements.pastRu.textContent = tenses.past[1];
     elements.futureExample.textContent = tenses.future[0];
     elements.futureRu.textContent = tenses.future[1];
+  } else {
+    elements.presentExample.textContent = "";
+    elements.presentRu.textContent = "";
+    elements.pastExample.textContent = "";
+    elements.pastRu.textContent = "";
+    elements.futureExample.textContent = "";
+    elements.futureRu.textContent = "";
   }
 }
 
@@ -420,7 +428,9 @@ function buildListeningQuiz() {
     button.addEventListener("click", () => checkListeningAnswer(button, answer));
     elements.listeningAnswers.append(button);
   });
+}
 
+function playListeningPrompt() {
   speak(chunkFor(listeningWord).phrase[0]);
 }
 
@@ -433,12 +443,11 @@ function checkListeningAnswer(button, answer) {
 
   if (answer.en === listeningWord.en) {
     button.classList.add("correct");
-    elements.listeningFeedback.textContent = "Да. Слушаем еще раз.";
+    elements.listeningFeedback.textContent = "Да. Можно повторить звук или нажать «Далее».";
   } else {
     button.classList.add("wrong");
     elements.listeningFeedback.textContent = `Почти. Это было: ${chunkFor(listeningWord).phrase[0]}.`;
   }
-  speak(chunkFor(listeningWord).phrase[0]);
 }
 
 function checkAnswer(button, answer) {
@@ -473,7 +482,8 @@ elements.speakBtn.addEventListener("click", () => speak(currentWord().en));
 elements.prevBtn.addEventListener("click", () => move(-1));
 elements.nextBtn.addEventListener("click", () => move(1));
 elements.newQuizBtn.addEventListener("click", buildQuiz);
-elements.playListeningBtn.addEventListener("click", buildListeningQuiz);
+elements.replayListeningBtn.addEventListener("click", playListeningPrompt);
+elements.nextListeningBtn.addEventListener("click", buildListeningQuiz);
 elements.russianHint.addEventListener("click", () => {
   hintVisible = !hintVisible;
   renderWord();

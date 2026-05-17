@@ -275,6 +275,10 @@ h2 {
   max-width: 560px;
 }
 
+.tense-panel[hidden] {
+  display: none;
+}
+
 .tense-row {
   display: grid;
   grid-template-columns: 76px minmax(132px, 1fr) minmax(90px, 0.85fr);
@@ -367,6 +371,18 @@ h2 {
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 10px;
+}
+
+.practice-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.listen-play {
+  width: 52px;
+  min-height: 48px;
+  font-size: 20px;
 }
 
 h3 {

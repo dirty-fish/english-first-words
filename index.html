@@ -164,7 +164,12 @@
           <div class="practice listening">
             <div class="practice-head">
               <h3>Слушание</h3>
-              <button class="small-button" id="playListeningBtn" type="button">Слушай</button>
+              <div class="practice-actions">
+                <button class="icon-button listen-play" id="replayListeningBtn" type="button" aria-label="Воспроизвести задание" title="Воспроизвести">
+                  <span aria-hidden="true">▶</span>
+                </button>
+                <button class="small-button" id="nextListeningBtn" type="button">Далее</button>
+              </div>
             </div>
             <p id="listeningPrompt">Послушай и выбери правильную карточку.</p>
             <div class="answers" id="listeningAnswers"></div>
