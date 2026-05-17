@@ -287,6 +287,7 @@ const elements = {
   listeningPrompt: document.querySelector("#listeningPrompt"),
   listeningAnswers: document.querySelector("#listeningAnswers"),
   listeningFeedback: document.querySelector("#listeningFeedback"),
+  updateAppBtn: document.querySelector("#updateAppBtn"),
   topics: document.querySelectorAll(".topic")
 };
 
@@ -512,6 +513,25 @@ elements.knownBtn.addEventListener("click", () => {
   move(1);
 });
 
+elements.updateAppBtn.addEventListener("click", async () => {
+  elements.updateAppBtn.disabled = true;
+  elements.updateAppBtn.textContent = "Обновляю...";
+
+  if ("serviceWorker" in navigator) {
+    const registrations = await navigator.serviceWorker.getRegistrations();
+    await Promise.all(registrations.map((registration) => registration.unregister()));
+  }
+
+  if ("caches" in window) {
+    const keys = await caches.keys();
+    await Promise.all(keys.map((key) => caches.delete(key)));
+  }
+
+  const freshUrl = new URL(location.href);
+  freshUrl.searchParams.set("fresh", Date.now());
+  location.replace(freshUrl.toString());
+});
+
 window.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight") move(1);
   if (event.key === "ArrowLeft") move(-1);
@@ -527,7 +547,9 @@ buildListeningQuiz();
 
 if ("serviceWorker" in navigator && location.protocol !== "file:") {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js").catch(() => {
+    navigator.serviceWorker.register("./sw.js").then((registration) => {
+      registration.update();
+    }).catch(() => {
       elements.feedback.textContent = "Офлайн-режим не включился в этом браузере.";
     });
   });

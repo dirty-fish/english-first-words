@@ -448,6 +448,27 @@ h3 {
   font-weight: 900;
 }
 
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 0 4px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.update-button {
+  min-height: 42px;
+  background: #eef2f7;
+}
+
+.update-button:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
 @media (max-width: 760px) {
   .app {
     width: min(100vw - 20px, 560px);
@@ -496,5 +517,10 @@ h3 {
 
   .answers {
     grid-template-columns: 1fr;
+  }
+
+  .app-footer {
+    align-items: stretch;
+    flex-direction: column;
   }
 }
